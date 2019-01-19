@@ -1,5 +1,7 @@
 <?php
 
+namespace Valiadator;
+
 class Validator
 {
   public $name;
