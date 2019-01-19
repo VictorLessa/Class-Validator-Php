@@ -25,7 +25,7 @@
 
     // $validator is the instance of Validator()
     
-    $validator->name($name)->value($value)->is_numeric();
+    $validator->name($name)->value($value)->is_numeric(); // true
 
     if ($validator->success()) {
       /// True
