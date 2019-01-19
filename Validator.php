@@ -4,22 +4,49 @@ namespace Valiadator;
 
 class Validator
 {
+  /**
+   * $name variable
+   *
+   * @var [string]
+   */
   public $name;
+
+  /**
+   * $value variable
+   *
+   * @var [string/integer]
+   */
   public $value;
+
+  /**
+   * $error variable
+   *
+   * @var array
+   */
   public $error = [];
 
+  /**
+   * setName function
+   *
+   * @param [string] $name
+   * @return void
+   */
   public function setName($name) {
     $this->name = $name;
     return $this;
   }
+
   /**
-   * @param string $value
-   * @return $this
+   * setValue function
+   *
+   * @param [string/integer] $value
+   * @return void
    */
   public function setValue($value) {
     $this->value = $value;
     return $this;
   }
+
   /**
   * is_numeric function
   * 
@@ -28,6 +55,7 @@ class Validator
   public function is_numeric() {
     return is_numeric($this->value) ? $this : $this->error[] = 'Valor '.$this->name.' não é numérico';
   }
+
   /**
    * is_strings function
    *
@@ -36,6 +64,7 @@ class Validator
   public function is_string() {
     return is_string($this->value) ? $this : $this->error[] = 'Valor '.$this->name.' não é uma string';
   }
+
   /**
    * is_number function
    *
@@ -44,6 +73,7 @@ class Validator
   public function is_number() {
     return is_number($this->value) ? $this : $this->error[] = 'Valor '.$this->name.' não é um numéro';
   }
+
   /**
    * range function
    *
@@ -53,6 +83,7 @@ class Validator
   public function ranger($len) {
     return strlen($this->value) >  $len ? $this->error[] = 'Valor '.$this->name.' é maior que p permitido' : $this;
   }
+
   /**
    * no_space function
    *
@@ -61,6 +92,7 @@ class Validator
   public function no_space() {
     return strstr($this->value, ' ') ? $this->error[] = 'Valor '.$this->name.' não pode conter espaços' : $this;
   }
+
   /**
    * getErrors function
    *
@@ -69,6 +101,7 @@ class Validator
   public function getErrors() {
     return $this->error;
   }
+
   /**
    * success function
    *
