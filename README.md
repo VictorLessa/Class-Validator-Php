@@ -19,9 +19,12 @@
 ### Use
 
   ```php
+    require '/path/Validator.php';
     $name = 'age';
     $value = 123;
 
+    // $validator is the instance of Validator()
+    
     $validator->name($name)->value($value)->is_numeric();
 
     if ($validator->success()) {
