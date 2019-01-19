@@ -6,8 +6,8 @@
 
 | Function | Param | Return | Description |
 | --- | --- | --- | --- |
-| name | String | - | Captures the object key and stores it in $name |
-| value | String or Interger | - | captures the object key and stores it in $value |
+| name | String | this | Captures the object key and stores it in $name |
+| value | String or Interger | this | captures the object key and stores it in $value |
 | is_numeric | - | string if false | checks if it is numeric otherwise it returns an error message |
 | is_string | - | string if false | checks if it is string otherwise it returns an error message |
 | is_number | - | string if false | checks if it is number otherwise it returns an error message |
