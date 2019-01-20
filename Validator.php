@@ -71,7 +71,7 @@ class Validator
    * @return boolean
    */
   public function is_number() {
-    return is_number($this->value) ? $this : $this->error[] = 'Valor '.$this->name.' não é um numéro';
+    return is_int($this->value) ? $this : $this->error[] = 'Valor '.$this->name.' não é um numéro';
   }
 
   /**
