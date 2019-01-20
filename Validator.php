@@ -53,7 +53,7 @@ class Validator
      * @return boolean
      */
     public function is_numeric() {
-        return is_numeric($this->value) ? $this : array_push($this->error, array('Message' => 'No campo '.$this->name.' o valor '.$this->value.' nao e numerico'));
+        return is_numeric($this->value) ? $this : array_push($this->error, array($this->name => 'O valor '.$this->value.' tem que ser numérico'));
     }
 
     /**
@@ -62,7 +62,7 @@ class Validator
      * @return boolean
      */
     public function is_string() {
-        return is_string($this->value) ? $this : array_push($this->error, array('Message' => 'O campo '.$this->name.' nao é uma string'));
+        return is_string($this->value) ? $this : array_push($this->error, array($this->name => 'O valor '.$this->value.' não é uma string'));
     }
 
     /**
@@ -71,7 +71,7 @@ class Validator
      * @return boolean
      */
     public function is_number() {
-        return is_int($this->value) ? $this : array_push($this->error, array('Message' => 'O campo '.$this->name.' nao e um numero'));
+        return is_int($this->value) ? $this : array_push($this->error, array($this->name => $this->name.' não é um numero'));
     }
 
     /**
@@ -81,7 +81,7 @@ class Validator
      * @return void
      */
     public function ranger($len) {
-        return strlen($this->value) >  $len ? array_push($this->error, array('Message' => 'O campo '.$this->name.' e maior que o permitido')) : $this;
+        return strlen($this->value) >  $len ? array_push($this->error, array($this->name => 'O valor '.$this->value.' é maior que o permitido')) : $this;
     }
 
     /**
@@ -91,9 +91,9 @@ class Validator
      */
     public function no_space() {
         if (is_string($this->value)) {
-            return strstr($this->value, ' ') ? array_push($this->error, array('Message' => 'O campo '.$this->name.' não pode conter espaço')) : $this;
+            return strstr($this->value, ' ') ? array_push($this->error, array($this->name => 'O valor '.$this->value.' não pode conter espaço')) : $this;
         } else {
-            return $this->error[] = 'Para usar a função no_space o valor deve ser uma string';
+            return array_push($this->error, array($this->name => 'Para usar a função no_space o valor deve ser uma string'));
         }
     }
 
